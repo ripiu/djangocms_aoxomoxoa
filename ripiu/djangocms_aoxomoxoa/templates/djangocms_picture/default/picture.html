@@ -7,7 +7,7 @@
 {% endif %}
 
 {% if in_unite %}
-  {% include "ripiu/djangocms_aoxomoxoa/picture.html" %}
+  {% include "ripiu/djangocms_aoxomoxoa/picture.html" with picture=instance.picture external_picture=instance.external_picture alt_text=instance.picture.default_alt_text caption_text=instance.caption_text %}
 {% else %}
   {# start render figure/figcaption #}
   {% if instance.caption_text %}

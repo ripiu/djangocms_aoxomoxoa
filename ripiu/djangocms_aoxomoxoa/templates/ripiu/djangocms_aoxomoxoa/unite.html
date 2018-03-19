@@ -1,4 +1,5 @@
 {% load cms_tags sekizai_tags staticfiles %}
+
 {% addtoblock "css" %}<link rel="stylesheet" href="{% static "ripiu/djangocms_aoxomoxoa/unitegallery/css/unite-gallery.css" %}">{% endaddtoblock %}
 {% if needs_jquery %}{% addtoblock "js" %}<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>{% endaddtoblock %}{% endif %}
 {% addtoblock "js" %}<script src="{% static "ripiu/djangocms_aoxomoxoa/unitegallery/js/unitegallery.min.js" %}"></script>{% endaddtoblock %}
@@ -14,9 +15,7 @@
 {% addtoblock "js" %}<script id="{{ instance.slug }}-conf" type="application/json">
   {{ unite_conf }}
 </script>{% endaddtoblock %}
-<!--
-  theme: {{ gallery_theme }}
--->
+
 <div {% if instance.attributes %}{{ instance.attributes_str }}{% endif %}
      id="{{ instance.slug }}"
      data-unite-conf="{{ instance.slug }}-conf"
