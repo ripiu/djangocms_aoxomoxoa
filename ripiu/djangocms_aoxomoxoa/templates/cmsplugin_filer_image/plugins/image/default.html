@@ -1,4 +1,4 @@
-{% load thumbnail filer_tags filer_image_tags %}{% spaceless %}
+{% load thumbnail filer_tags filer_image_tags aoxomoxoa_filters %}{% spaceless %}
 
 {% comment %}
   You may change the image size for special cases in your project by overriding
@@ -15,7 +15,7 @@
 
 {% if link %}<a href="{{ link }}"{% if instance.target_blank %} target="_blank"{% endif %} class="filer_image_link" {{ instance.link_attributes_str }}>{% endif %}
 {% if in_unite %}
-  {% include "ripiu/djangocms_aoxomoxoa/picture.html" with picture=instance.image external_picture=instance.image_url alt_text=instance.alt caption_text=instance.caption %}
+  {% include "ripiu/djangocms_aoxomoxoa/picture.html" with picture=instance.image external_picture=instance.image_url alt_text=instance|get_alt caption_text=instance|get_caption %}
 {% else %}
   {% if instance.image %}
     {% if instance.use_original_image %}

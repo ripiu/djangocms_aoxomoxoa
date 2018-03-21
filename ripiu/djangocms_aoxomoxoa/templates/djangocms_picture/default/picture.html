@@ -1,4 +1,4 @@
-{% load thumbnail %}
+{% load thumbnail aoxomoxoa_filters %}
 
 {% if picture_link %}
     <a href="{{ picture_link }}"
@@ -7,7 +7,7 @@
 {% endif %}
 
 {% if in_unite %}
-  {% include "ripiu/djangocms_aoxomoxoa/picture.html" with picture=instance.picture external_picture=instance.external_picture alt_text=instance.picture.default_alt_text caption_text=instance.caption_text %}
+  {% include "ripiu/djangocms_aoxomoxoa/picture.html" with picture=instance.picture external_picture=instance.external_picture alt_text=instance|get_alt caption_text=instance|get_caption %}
 {% else %}
   {# start render figure/figcaption #}
   {% if instance.caption_text %}
