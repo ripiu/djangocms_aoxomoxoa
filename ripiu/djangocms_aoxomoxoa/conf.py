@@ -20,7 +20,7 @@ class AoxomoxoaAppConf(AppConf):
     # do I need to load jquery?
     NEEDS_JQUERY = True
 
-    DEFAULT_MEDIA_PICTURE = static("ripiu/djangocms_aoxomoxoa/img/media.jpg")
+    DEFAULT_MEDIA_PICTURE = static("ripiu/djangocms_aoxomoxoa/img/media.svg")
 
     ITEM_PUBLISHERS = item_publishers
 
