@@ -1,4 +1,4 @@
-import logging
+import types
 
 from cms.plugin_base import CMSPluginBase
 from cms.plugin_pool import plugin_pool
@@ -17,9 +17,8 @@ from .admin import (
     DefaultThemeUniteOptionsAdmin, TilesColumnsUniteOptionsAdmin,
     TilesJustifiedUniteOptionsAdmin,
 )
+from .utils import get_item_class
 from .models import plugins
-
-logger = logging.getLogger(__name__)
 
 
 class BaseUnitePluginPublisher(CMSPluginBase):
@@ -49,7 +48,6 @@ class BaseUnitePluginPublisher(CMSPluginBase):
             self.fieldsets = self.fieldsets + self.admin_class.fieldsets
 
     def copy_relations(self, oldinstance):
-        logger.debug("asdrubala")
         self.full_thumbnail_option = oldinstance.full_thumbnail_option
         self.thumbnail_thumbnail_option = oldinstance\
             .thumbnail_thumbnail_option
@@ -81,9 +79,19 @@ class BaseUnitePluginPublisher(CMSPluginBase):
         context.update({
             'unite_conf': mark_safe(json.dumps(conf)),
             'needs_jquery': settings.RIPIU_AOXOMOXOA_NEEDS_JQUERY,
-            'thumbnail_size': instance.thumbnail_thumbnail_option,
-            'full_size': instance.full_thumbnail_option,
+            'thumbnail_size': (
+                instance.thumbnail_thumbnail_option.width,
+                instance.thumbnail_thumbnail_option.height,
+            ),
+            'full_size': (
+                instance.full_thumbnail_option.width,
+                instance.full_thumbnail_option.height,
+            ),
+            'default_poster_picture':
+                settings.RIPIU_AOXOMOXOA_DEFAULT_MEDIA_PICTURE,
         })
+        for child in instance.child_plugin_instances:
+            child.get_plugin_class = types.MethodType(get_item_class, child)
         return context
 
 

@@ -21,7 +21,7 @@
      data-unite-conf="{{ instance.slug }}-conf"
      style="display: none">
   {% if instance.child_plugin_instances %}
-    {% with in_unite=True %}
+    {% with thumbnail_size=thumbnail_size full_size=full_size default_poster_picture=default_poster_picture %}
       {% for child in instance.child_plugin_instances %}
         {% render_plugin child %}
       {% endfor %}

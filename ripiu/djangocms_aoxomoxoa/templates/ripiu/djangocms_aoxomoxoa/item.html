@@ -1,5 +1,10 @@
+{% load cms_tags %}
 <img src="{% spaceless %}{% block thumbnail %}{% endblock thumbnail %}{% endspaceless %}"
      alt="{% spaceless %}{% block title %}{% endblock title %}{% endspaceless %}"
-     data-image="{% spaceless %}{% block big %}{% endblock big %}{% endspaceless %}"
-     data-description="{% spaceless %}{% block description %}{% endblock description %}{% endspaceless %}"
+     {% block extra %}{% endblock extra %}
 >
+{# {% if instance.child_plugin_instances %} #}
+{#   {% for child in instance.child_plugin_instances %} #}
+{#     {% render_plugin child %} #}
+{#   {% endfor %} #}
+{# {% endif %} #}

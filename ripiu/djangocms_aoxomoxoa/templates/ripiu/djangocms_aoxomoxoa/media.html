@@ -1,0 +1,30 @@
+{% extends "./picture.html" %}
+{% load thumbnail cms_tags %}
+
+{% block thumbnail %}
+  {% if picture %}
+    {{ block.super }}
+  {% else %}
+    {{ default_poster_picture }}
+  {% endif %}
+{% endblock thumbnail %} #}
+
+{% block extra %}
+  {{ block.super }}
+  {% if media_type %}data-type="{{ media_type }}"{% endif %}
+  {% if video_id %}data-videoid="{{ video_id }}"{% endif %}
+  {% for source in sources %}
+    {% include "./video_source.html" with type=source.type url=source.url %}
+  {% endfor %}
+{% endblock extra %}
+
+{% comment %}
+  data-type = html5video
+            | soundcloud
+            | vimeo
+            | youtube
+  wistia has no data-type
+  data-videoogv="http://video-js.zencoder.com/oceans-clip.ogv"
+  data-videowebm="http://video-js.zencoder.com/oceans-clip.webm"
+  data-videomp4="http://video-js.zencoder.com/oceans-clip.mp4"
+{% endcomment %}
