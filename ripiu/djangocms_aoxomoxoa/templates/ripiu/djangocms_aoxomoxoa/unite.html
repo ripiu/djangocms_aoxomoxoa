@@ -11,7 +11,7 @@
     {% addtoblock "css" %}<script src="{% static theme_css %}"></script>{% endaddtoblock %}
   {% endwith %}
 {% endif %}
-{% addtoblock "js" %}<script src="{% static "ripiu/djangocms_aoxomoxoa/js/unite.js" %}"></script>{% endaddtoblock %}
+{% addtoblock "js" %}<script src="{% static "ripiu/djangocms_aoxomoxoa/js/unite.js" %}?v=0.0.2"></script>{% endaddtoblock %}
 {% addtoblock "js" %}<script id="{{ instance.slug }}-conf" type="application/json">
   {{ unite_conf }}
 </script>{% endaddtoblock %}
