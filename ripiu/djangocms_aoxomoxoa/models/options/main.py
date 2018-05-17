@@ -17,7 +17,7 @@ class MainOptions(models.Model):
     )
 
     tile_width = models.PositiveSmallIntegerField(
-        _('tile height'),
+        _('tile width'),
         default=180, blank=False,
         # help_text=_('Tile width.')
     )
