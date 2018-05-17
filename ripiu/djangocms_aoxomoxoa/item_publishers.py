@@ -38,7 +38,11 @@ if 'djangocms_picture' in settings.INSTALLED_APPS:
     class PicturePluginItemPublisher(PicturePlugin):
         render_template = 'ripiu/djangocms_aoxomoxoa/picture.html'
 
+        def get_render_template(self, context, instance, placeholder):
+            return self.render_template
+
         def render(self, context, instance, placeholder):
+            print(instance.picture)
             if 'alt' in instance.attributes and instance.attributes['alt']:
                 alt_text = instance.attributes['alt']
             else:
