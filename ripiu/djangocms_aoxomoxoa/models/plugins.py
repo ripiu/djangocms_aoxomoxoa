@@ -45,6 +45,7 @@ class CarouselPlugin(CarouselUniteOptions, UnitePlugin):
 
     saved_conf = models.ForeignKey(
         CarouselSavedUniteOptions,
+        on_delete=models.SET_NULL,
         related_name='instances',
         related_query_name='instance',
         blank=True, null=True,
@@ -54,7 +55,9 @@ class CarouselPlugin(CarouselUniteOptions, UnitePlugin):
     )
 
     thumbnail_thumbnail_option = models.ForeignKey(
-        'filer.ThumbnailOption', null=False, blank=False,
+        'filer.ThumbnailOption',
+        on_delete=models.CASCADE,
+        null=False, blank=False,
         verbose_name=_('thumbnail thumbnail option'),
         related_name='carousel_unite_plugins_thumbnail',
         related_query_name='carousel_unite_plugin_thumbnail',
@@ -62,7 +65,9 @@ class CarouselPlugin(CarouselUniteOptions, UnitePlugin):
     )
 
     full_thumbnail_option = models.ForeignKey(
-        'filer.ThumbnailOption', null=False, blank=False,
+        'filer.ThumbnailOption',
+        on_delete=models.CASCADE,
+        null=False, blank=False,
         verbose_name=_('fullscreen thumbnail option'),
         related_name='carousel_unite_plugins_full',
         related_query_name='carousel_unite_plugin_full',
@@ -81,6 +86,7 @@ class CompactThemePlugin(CompactThemeUniteOptions, UnitePlugin):
 
     saved_conf = models.ForeignKey(
         CompactThemeSavedUniteOptions,
+        on_delete=models.SET_NULL,
         related_name='instances',
         related_query_name='instance',
         blank=True, null=True,
@@ -90,7 +96,9 @@ class CompactThemePlugin(CompactThemeUniteOptions, UnitePlugin):
     )
 
     thumbnail_thumbnail_option = models.ForeignKey(
-        'filer.ThumbnailOption', null=False, blank=False,
+        'filer.ThumbnailOption',
+        on_delete=models.CASCADE,
+        null=False, blank=False,
         verbose_name=_('thumbnail thumbnail option'),
         related_name='compacttheme_unite_plugins_thumbnail',
         related_query_name='compacttheme_unite_plugin_thumbnail',
@@ -98,7 +106,9 @@ class CompactThemePlugin(CompactThemeUniteOptions, UnitePlugin):
     )
 
     full_thumbnail_option = models.ForeignKey(
-        'filer.ThumbnailOption', null=False, blank=False,
+        'filer.ThumbnailOption',
+        on_delete=models.CASCADE,
+        null=False, blank=False,
         verbose_name=_('fullscreen thumbnail option'),
         related_name='compacttheme_unite_plugins_full',
         related_query_name='compacttheme_unite_plugin_full',
@@ -117,6 +127,7 @@ class DefaultThemePlugin(DefaultThemeUniteOptions, UnitePlugin):
 
     saved_conf = models.ForeignKey(
         DefaultThemeSavedUniteOptions,
+        on_delete=models.SET_NULL,
         related_name='instances',
         related_query_name='instance',
         blank=True, null=True,
@@ -126,7 +137,9 @@ class DefaultThemePlugin(DefaultThemeUniteOptions, UnitePlugin):
     )
 
     thumbnail_thumbnail_option = models.ForeignKey(
-        'filer.ThumbnailOption', null=False, blank=False,
+        'filer.ThumbnailOption',
+        on_delete=models.CASCADE,
+        null=False, blank=False,
         verbose_name=_('thumbnail thumbnail option'),
         related_name='defaulttheme_unite_plugins_thumbnail',
         related_query_name='defaulttheme_unite_plugin_thumbnail',
@@ -134,7 +147,9 @@ class DefaultThemePlugin(DefaultThemeUniteOptions, UnitePlugin):
     )
 
     full_thumbnail_option = models.ForeignKey(
-        'filer.ThumbnailOption', null=False, blank=False,
+        'filer.ThumbnailOption',
+        on_delete=models.CASCADE,
+        null=False, blank=False,
         verbose_name=_('fullscreen thumbnail option'),
         related_name='defaulttheme_unite_plugins_full',
         related_query_name='defaulttheme_unite_plugin_full',
@@ -153,6 +168,7 @@ class GridThemePlugin(GridThemeUniteOptions, UnitePlugin):
 
     saved_conf = models.ForeignKey(
         GridThemeSavedUniteOptions,
+        on_delete=models.SET_NULL,
         related_name='instances',
         related_query_name='instance',
         blank=True, null=True,
@@ -162,7 +178,9 @@ class GridThemePlugin(GridThemeUniteOptions, UnitePlugin):
     )
 
     thumbnail_thumbnail_option = models.ForeignKey(
-        'filer.ThumbnailOption', null=False, blank=False,
+        'filer.ThumbnailOption',
+        on_delete=models.CASCADE,
+        null=False, blank=False,
         verbose_name=_('thumbnail thumbnail option'),
         related_name='gridtheme_unite_plugins_thumbnail',
         related_query_name='gridtheme_unite_plugin_thumbnail',
@@ -170,7 +188,9 @@ class GridThemePlugin(GridThemeUniteOptions, UnitePlugin):
     )
 
     full_thumbnail_option = models.ForeignKey(
-        'filer.ThumbnailOption', null=False, blank=False,
+        'filer.ThumbnailOption',
+        on_delete=models.CASCADE,
+        null=False, blank=False,
         verbose_name=_('fullscreen thumbnail option'),
         related_name='gridtheme_unite_plugins_full',
         related_query_name='gridtheme_unite_plugin_full',
@@ -189,6 +209,7 @@ class SliderPlugin(SliderUniteOptions, UnitePlugin):
 
     saved_conf = models.ForeignKey(
         SliderSavedUniteOptions,
+        on_delete=models.SET_NULL,
         related_name='instances',
         related_query_name='instance',
         blank=True, null=True,
@@ -198,7 +219,9 @@ class SliderPlugin(SliderUniteOptions, UnitePlugin):
     )
 
     thumbnail_thumbnail_option = models.ForeignKey(
-        'filer.ThumbnailOption', null=False, blank=False,
+        'filer.ThumbnailOption',
+        on_delete=models.CASCADE,
+        null=False, blank=False,
         verbose_name=_('thumbnail thumbnail option'),
         related_name='slider_unite_plugins_thumbnail',
         related_query_name='slider_unite_plugin_thumbnail',
@@ -206,7 +229,9 @@ class SliderPlugin(SliderUniteOptions, UnitePlugin):
     )
 
     full_thumbnail_option = models.ForeignKey(
-        'filer.ThumbnailOption', null=False, blank=False,
+        'filer.ThumbnailOption',
+        on_delete=models.CASCADE,
+        null=False, blank=False,
         verbose_name=_('fullscreen thumbnail option'),
         related_name='slider_unite_plugins_full',
         related_query_name='slider_unite_plugin_full',
@@ -225,6 +250,7 @@ class TilesColumnsPlugin(TilesColumnsUniteOptions, UnitePlugin):
 
     saved_conf = models.ForeignKey(
         TilesColumnsSavedUniteOptions,
+        on_delete=models.SET_NULL,
         related_name='instances',
         related_query_name='instance',
         blank=True, null=True,
@@ -234,7 +260,9 @@ class TilesColumnsPlugin(TilesColumnsUniteOptions, UnitePlugin):
     )
 
     thumbnail_thumbnail_option = models.ForeignKey(
-        'filer.ThumbnailOption', null=False, blank=False,
+        'filer.ThumbnailOption',
+        on_delete=models.CASCADE,
+        null=False, blank=False,
         verbose_name=_('thumbnail thumbnail option'),
         related_name='tilescolumns_unite_plugins_thumbnail',
         related_query_name='tilescolumns_unite_plugin_thumbnail',
@@ -242,7 +270,9 @@ class TilesColumnsPlugin(TilesColumnsUniteOptions, UnitePlugin):
     )
 
     full_thumbnail_option = models.ForeignKey(
-        'filer.ThumbnailOption', null=False, blank=False,
+        'filer.ThumbnailOption',
+        on_delete=models.CASCADE,
+        null=False, blank=False,
         verbose_name=_('fullscreen thumbnail option'),
         related_name='tilescolumns_unite_plugins_full',
         related_query_name='tilescolumns_unite_plugin_full',
@@ -261,6 +291,7 @@ class TilesGridPlugin(TilesGridUniteOptions, UnitePlugin):
 
     saved_conf = models.ForeignKey(
         TilesGridSavedUniteOptions,
+        on_delete=models.SET_NULL,
         related_name='instances',
         related_query_name='instance',
         blank=True, null=True,
@@ -270,7 +301,9 @@ class TilesGridPlugin(TilesGridUniteOptions, UnitePlugin):
     )
 
     thumbnail_thumbnail_option = models.ForeignKey(
-        'filer.ThumbnailOption', null=False, blank=False,
+        'filer.ThumbnailOption',
+        on_delete=models.CASCADE,
+        null=False, blank=False,
         verbose_name=_('thumbnail thumbnail option'),
         related_name='tilesgrid_unite_plugins_thumbnail',
         related_query_name='tilesgrid_unite_plugin_thumbnail',
@@ -278,7 +311,9 @@ class TilesGridPlugin(TilesGridUniteOptions, UnitePlugin):
     )
 
     full_thumbnail_option = models.ForeignKey(
-        'filer.ThumbnailOption', null=False, blank=False,
+        'filer.ThumbnailOption',
+        on_delete=models.CASCADE,
+        null=False, blank=False,
         verbose_name=_('fullscreen thumbnail option'),
         related_name='tilesgrid_unite_plugins_full',
         related_query_name='tilesgrid_unite_plugin_full',
@@ -297,6 +332,7 @@ class TilesJustifiedPlugin(TilesJustifiedUniteOptions, UnitePlugin):
 
     saved_conf = models.ForeignKey(
         TilesJustifiedSavedUniteOptions,
+        on_delete=models.SET_NULL,
         related_name='instances',
         related_query_name='instance',
         blank=True, null=True,
@@ -306,7 +342,9 @@ class TilesJustifiedPlugin(TilesJustifiedUniteOptions, UnitePlugin):
     )
 
     thumbnail_thumbnail_option = models.ForeignKey(
-        'filer.ThumbnailOption', null=False, blank=False,
+        'filer.ThumbnailOption',
+        on_delete=models.CASCADE,
+        null=False, blank=False,
         verbose_name=_('thumbnail thumbnail option'),
         related_name='tilesjustified_unite_plugins_thumbnail',
         related_query_name='tilesjustified_unite_plugin_thumbnail',
@@ -314,7 +352,9 @@ class TilesJustifiedPlugin(TilesJustifiedUniteOptions, UnitePlugin):
     )
 
     full_thumbnail_option = models.ForeignKey(
-        'filer.ThumbnailOption', null=False, blank=False,
+        'filer.ThumbnailOption',
+        on_delete=models.CASCADE,
+        null=False, blank=False,
         verbose_name=_('fullscreen thumbnail option'),
         related_name='tilesjustified_unite_plugins_full',
         related_query_name='tilesjustified_unite_plugin_full',
@@ -333,6 +373,7 @@ class TilesNestedPlugin(TilesNestedUniteOptions, UnitePlugin):
 
     saved_conf = models.ForeignKey(
         TilesNestedSavedUniteOptions,
+        on_delete=models.SET_NULL,
         related_name='instances',
         related_query_name='instance',
         blank=True, null=True,
@@ -342,7 +383,9 @@ class TilesNestedPlugin(TilesNestedUniteOptions, UnitePlugin):
     )
 
     thumbnail_thumbnail_option = models.ForeignKey(
-        'filer.ThumbnailOption', null=False, blank=False,
+        'filer.ThumbnailOption',
+        on_delete=models.CASCADE,
+        null=False, blank=False,
         verbose_name=_('thumbnail thumbnail option'),
         related_name='tilesnested_unite_plugins_thumbnail',
         related_query_name='tilesnested_unite_plugin_thumbnail',
@@ -350,7 +393,9 @@ class TilesNestedPlugin(TilesNestedUniteOptions, UnitePlugin):
     )
 
     full_thumbnail_option = models.ForeignKey(
-        'filer.ThumbnailOption', null=False, blank=False,
+        'filer.ThumbnailOption',
+        on_delete=models.CASCADE,
+        null=False, blank=False,
         verbose_name=_('fullscreen thumbnail option'),
         related_name='tilesnested_unite_plugins_full',
         related_query_name='tilesnested_unite_plugin_full',
